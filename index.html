@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+   
+    <style>
+         /* Media Query for Tablets & desktop portrait mode */
+         @media (min-width: 768px) {
+            body {
+                background-color: white;
+            }
+            body{
+                margin: 0;
+            }
+            #left{
+                height: 36rem;
+                width: 35%;
+                margin-left: 10%;
+                background-color: peachpuff;
+                float: left;
+                padding: 20px;
+                box-sizing: border-box;
+                border-radius: 10px;
+            }
+            #right{
+                height: 36rem;
+                width: 40%;
+                margin-left: 10%;
+                background-color: rgb(104, 221, 182);
+                float: left;
+                padding: 20px;
+                box-sizing: border-box;
+                border-radius: 10px;
+            }
+            #boxContainer{
+                height: 30rem;
+                width: 80%;
+                margin-left: 10%;
+                background-color: white;
+                overflow-y: scroll;
+                padding: 20px;
+                box-sizing: border-box;
+                border-radius: 10px;
+            }
+            .box {
+                height: fit-height;
+                width: 95%;
+                position: relative;
+                background-color: #f0f0f0;
+                border-radius: 10px;
+                margin-bottom: 1rem;
+                border: 2px solid black;
+                padding: 10px 10px;
+                margin: 10px 0;
+                font-family: Arial, sans-serif;
+    }
+          .button1 {
+                margin-top: 0.5rem;
+                padding-top: 0.1rem;
+                padding-bottom: 0.05rem;
+                padding-left: 1.9rem;
+                padding-right: 0.7rem;
+                margin-left: 8.6rem;
+                background-color: black;
+                color: azure;
+                border-radius: 0.2rem;
+                cursor: pointer !important ;
+          }
+          .button1:hover {
+            cursor: pointer;
+            background-color: black;
+            cursor: pointer !important ;
+          }
+
+            .event-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                flex-wrap: wrap;
+    }
+
+            .event-time {
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            .event-desc {
+                margin-top: 10px;
+                font-size: 14px;
+            }
+
+            .trash-btn {
+                color: #c00;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .trash-btn:hover {
+               color: #a00;
+            }
+            .icon-group i {
+                margin-left: 10px;
+                cursor: pointer;
+            }
+            #para{
+                margin-left: 1rem;
+            }
+            #charscount{
+                margin-top: 1px;
+            }
+            .bin-icon{
+                padding-top: 10vh;
+                margin-left: 25rem;
+                cursor: pointer;
+                
+            }
+            .dropdown-btn {
+                text-align: center;
+                display: grid;
+                color: #333;
+                cursor: pointer;
+                align-items: flex-start;
+            }
+
+           .dropdown-btn:hover {
+                 color: #000;
+                 
+    }
+            .description{
+              padding: 5%;
+              padding-top: 0%;
+              user-select: none;
+              text-align: center;
+              margin-top: 1px;
+              margin-bottom: 1px;
+              font-size: 14px;
+    }
+
+  
+
+        }
+        /* Media Query for mobile portrait mode */
+        @media (min-width: 100px) and (max-width: 767px) {
+            body {
+                background-color: white;
+            }
+        }
+
+ 
+
+
+    </style>
+</head>
+<body onload="initializedDB()">
+    <!-- used for creating elements-->
+    <div id="left">
+        <form>
+          <p>Choose Date</p>
+        <input type="date" required>
+        <br>
+        <p>Event Name</p>
+        <input type="text" required oninput="textCount(this,80)"    maxlength="80">
+        <p id="charcount"><p class="textRemaining"> 80 / 80  chatacters left</p>
+        <p>Start Time</p>
+        <input type="time" required>
+        <br>
+        <p>End Time</p>
+        <input type="time" required>
+        <br>
+        <p>Description</p>
+        <textarea cols="40" rows="5" oninput="textCount(this,300)" maxlength="300"></textarea>
+        <p id="charscount"><p class="textRemaining"> 300 / 300  chatacters left</p>
+        <br>
+
+        <input type="submit" class="button1" value="Create Your Event" onclick="adddata(this)">
+      
+        </form>
+        <br>
+        <br>
+        
+
+
+    </div>
+     <!-- used for display and delete elements-->
+    <div id="right">
+        <p style="margin-left: 10%"; >Your Event List <input type="date" title="Select Your Date" style="width: 33%; margin-left: 12% ;">
+            <button id="search" onclick="dateFilter(this.previousElementSibling.value)" style="width: 20%; margin-left: 1%;">Search</button></p>
+    <div id="boxContainer">
+          
+
+</div>
+
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
